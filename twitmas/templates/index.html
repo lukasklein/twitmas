@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Twitmas</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .tweet {
+            color: #aaa;
+        }
+
+        .kw {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #000;
+        }
+        footer {
+            font-size: .8em;
+            color: #ccc;
+            border-top: 1px solid #ccc;
+            margin-top: 1em;
+        }
+        </style>
+    </head>
+    <body>
+        <a href="https://github.com/lukashed/twitmas/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+        <h1>Merry Twitmas!</h1>
+        <div id="tweets"></div>
+        <footer>
+            <p>Made by <a href="http://lukasklein.com">Lukas</a> from the <a href="http://productgang.com">Product Gang</a></p>
+        </footer>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+        <script>
+        $(function() {
+            var words = ['last', 'christmas', 'i', 'gave', 'you', 'my', 'heart'];
+
+            words.forEach(function(word){
+                $('#tweets').append($('<div/>').attr('id', 'tweet_' + word).addClass('tweet'));
+                $.get('/get_tweet', {
+                    'keyword': word
+                }, function(data, err) {
+                    $('#tweet_' + word).append(data);
+                });
+            });
+        });
+        </script>
+    </body>
+</html>

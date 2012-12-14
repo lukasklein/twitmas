@@ -35,7 +35,51 @@
         <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
         <script>
         $(function() {
-            var words = ['last', 'christmas', 'i', 'gave', 'you', 'my', 'heart', 'but', 'the', 'very', 'next', 'day', 'you', 'gave', 'it', 'away', 'this', 'year', 'to', 'save', 'me', 'from', 'tears', 'i\'ll', 'give', 'it', 'to', 'someone', 'special'];
+            
+            var chorus =    'Last Christmas \
+                            I gave you my heart \
+                            But the very next day you gave it away \
+                            This year \
+                            To save me from tears \
+                            I\'ll give it to someone special';
+                            
+            var verse1 =    'Once bitten and twice shy \
+                            I keep my distance \
+                            But you still catch my eye \
+                            Tell me baby \
+                            Do you recognize me? \
+                            Well \
+                            It\'s been a year \
+                            It doesn\'t surprise me \
+                            I wrapped it up and sent it \
+                            With a note saying, "I love you" \
+                            I meant it \
+                            Now I know what a fool I\'ve been \
+                            But if you kissed me now \
+                            I know you\'d fool me again';
+                            
+            var verse2 =    'A crowded room \
+                            Friends with tired eyes \
+                            I\'m hiding from you \
+                            And your soul of ice \
+                            My god I thought you were someone to rely on me? \
+                            I guess I was a shoulder to cry on \
+                            A face on a lover with a fire in his heart \
+                            A man under cover but you tore me apart \
+                            Now I\'ve found a real love you\'ll never fool me again';
+                            
+            var verse3 =    'A face on a lover with a fire in his heart \
+                            A man under cover but you tore him apart \
+                            Maybe next year I\'ll give it to someone \
+                            I\'ll give it to someone special.';
+                            
+            chorus = chorus.split(' ');
+            verse1 = verse1.split(' ');
+            verse2 = verse2.split(' ');
+            verse3 = verse3.split(' ');
+            
+            
+            var words = chorus.concat(chorus, verse1, chorus, verse2, chorus, verse3);
 
             words.forEach(function(word){
                 $('#tweets').append($('<div/>').attr('id', 'tweet_' + word).addClass('tweet'));
